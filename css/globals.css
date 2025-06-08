@@ -1,14 +1,5 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 
-/* @font-face {
-  font-family: "GFS Heraklit";
-  src: url("../fonts/GFSHeraklit-Regular.woff2") format("woff2"),
-    url("../fonts/GFSHeraklit-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-} */
-
 :root {
   --shark-black: #212529;
   --text-white: #fefefe;
