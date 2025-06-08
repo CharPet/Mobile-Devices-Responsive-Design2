@@ -240,8 +240,6 @@ html {
     var(--lime-green) 100%
   );
   overflow: hidden;
-  position: relative;
-  top: -2%;
 }
 
 .decorative-svg {
