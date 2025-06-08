@@ -5,7 +5,7 @@ html {
   overflow: hidden;
   font-family: "Vollkorn", serif;
   scroll-behavior: smooth;
-  height: 100%;
+  height: auto;
 }
 
 .profile,
@@ -15,7 +15,7 @@ html {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 3.5em; /* Height of navbar */
+
   position: relative;
   top: 0;
   left: 0;
@@ -412,7 +412,10 @@ h2 {
   font-weight: 600;
   margin: 1em auto;
   line-height: 1.2;
-  transform: translateX(50px);
+  max-width: 90%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  padding: 0;
 }
 
 h3 {
@@ -548,8 +551,7 @@ h3 {
 }
 
 .skillset .right .text {
-  margin: 24px 56px;
-  opacity: 1;
+  margin: 2em auto;
 }
 
 .toolset-figure {
@@ -685,7 +687,7 @@ h3 {
 }
 
 .contact .right .text {
-  margin: 48px 56px 24px 56px;
+  margin: 2em auto;
   border-collapse: collapse;
   opacity: 1;
 }
@@ -694,10 +696,10 @@ h3 {
   margin-bottom: 48px;
 }
 
-.contact-container {
+/* .contact-container {
   display: flex;
-  margin: 44px 56px 24px 56px;
-}
+  margin: 2em auto;
+} */
 
 /* .contact-container div:nth-of-type(2) {
   text-align: right;
@@ -706,18 +708,18 @@ h3 {
 } */
 
 .contact-details {
-  width: 50%;
   font-size: 1.2rem;
   font-size: clamp(0.8rem, 0.6rem + 1.25vw, 1.2rem);
   font-family: "Vollkorn", sans-serif;
-  display: inline-block;
+  display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.2em;
+  margin: 2em auto;
 }
 
 .contact-details p:first-child {
-  font-size: 1.4em;
-  font-size: clamp(0.8rem, 0.6rem + 1.25vw, 1.4rem);
+  font-size: 1.6rem;
+  font-size: clamp(1rem, 0.6rem + 1.25vw, 1.6rem);
 }
 
 .contact-details a {
@@ -741,11 +743,11 @@ h3 {
 }
 
 #form {
-  margin: 24px 56px 64px 56px;
+  margin: 4em auto;
+  width: 85%;
 }
 
 #fieldset {
-  width: 80%;
   margin: 0 auto;
   padding: 1em;
   border: 2px solid var(--shark-black);
@@ -880,7 +882,7 @@ textarea.invalid + .input-error-message {
 }
 
 #inspiration {
-  margin: 48px 56px 56px 56px;
+  margin: 2em auto;
   font-size: 1.2rem;
   font-weight: 400;
   font-style: italic;
