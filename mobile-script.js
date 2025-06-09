@@ -1,3 +1,7 @@
+app.listen(3000, "0.0.0.0", () => {
+  console.log("Server running on all interfaces");
+});
+
 const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
 const email = document.getElementById("email");
