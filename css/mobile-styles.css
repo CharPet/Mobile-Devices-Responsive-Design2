@@ -273,12 +273,14 @@ h2 {
   list-style: none;
   width: 100%;
   padding: 0.6em 0 0.4em 0;
+  flex: 1;
+  margin: 0;
 }
 
 .nav-link-small {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   color: var(--text-white);
   font-size: 1.4rem;
@@ -287,13 +289,15 @@ h2 {
   cursor: pointer;
   font-weight: 400;
   text-decoration: none;
-  margin: 0 0.2em;
+  margin: 0;
   position: relative;
   padding: 0.2em 0.4em;
   overflow: hidden;
   transition: transform 0.3s ease, color 0.3s ease;
   z-index: 2;
   vertical-align: middle;
+  min-width: 0;
+  flex: 1;
 }
 
 .nav-link-small span:active {
@@ -606,7 +610,7 @@ iframe {
 }
 
 .project-container:last-child {
-  margin-bottom: 3em;
+  margin-bottom: 4em;
 }
 .project-pic {
   display: block;
