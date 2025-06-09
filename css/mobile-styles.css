@@ -698,7 +698,7 @@ iframe {
   justify-content: center;
   align-self: center;
   gap: 0.3em;
-  margin: 2em;
+  margin: 2em 1.8em;
   /* text-align: center; */
 }
 
@@ -724,6 +724,7 @@ iframe {
 
 #form-presentation {
   text-align: center;
+  font-size: 1.6em;
 }
 
 #email-link::after {
