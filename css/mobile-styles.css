@@ -481,7 +481,7 @@ hr {
     var(--shark-black),
     var(--text-white)
   );
-  margin-bottom: 4em;
+  margin-bottom: 18em;
 }
 
 /* SKILL SET */
@@ -533,9 +533,9 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1em;
-  margin: 48px auto;
-  border: 1px groove var(--shark-black);
+  /* gap: 1em; */
+  margin: 2.5em auto;
+  border: 2px solid var(--shark-black);
   border-radius: 0 0 12px 12px;
 }
 
@@ -556,7 +556,7 @@ hr {
   background-color: var(--shark-black);
   width: auto;
   margin-top: 1em;
-  padding: 16px 24px;
+  padding: 0.8em 1.2em;
 }
 
 iframe {
