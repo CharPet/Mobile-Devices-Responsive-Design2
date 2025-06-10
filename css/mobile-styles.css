@@ -280,7 +280,7 @@ h2 {
 .nav-link-small {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   color: var(--text-white);
   font-size: 1.4rem;
@@ -479,12 +479,7 @@ hr {
   border: 0;
   height: 1px;
   background: var(--shark-black);
-  background-image: linear-gradient(
-    to right,
-    var(--text-white),
-    var(--shark-black),
-    var(--text-white)
-  );
+  background-image: linear-gradient(to right, #333, var(--shark-black), #333);
   margin-bottom: 12em;
 }
 
@@ -530,9 +525,18 @@ hr {
   margin: 2em auto;
 } */
 
+.toolset-figure,
+.toolset-container,
+iframe {
+  width: 100% !important;
+  /* margin: 0 !important; */
+  padding: 0 !important;
+  box-sizing: border-box;
+  display: block;
+}
 .toolset-figure {
   width: 90%;
-  height: 60%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -610,7 +614,7 @@ iframe {
 }
 
 .project-container:last-child {
-  margin-bottom: 4em;
+  margin-bottom: 5em;
 }
 .project-pic {
   display: block;
@@ -892,4 +896,78 @@ textarea.invalid + .input-error-message {
 #inspiration a {
   text-decoration: underline;
   color: var(--shark-black);
+}
+
+@media only screen and (max-width: 425px) {
+  .hero-image-container {
+    max-width: 80%;
+    height: auto;
+  }
+
+  /* .finisher-header {
+    width: 100%
+  } */
+}
+
+.navbar-toggle {
+  display: none;
+  font-size: 2.2em;
+  cursor: pointer;
+  color: var(--text-white);
+  padding: 0.5em 1em;
+  z-index: 200;
+}
+
+@media (max-width: 600px) {
+  .navbar-toggle {
+    display: block;
+    position: absolute;
+    top: 0.2em;
+    right: 1em;
+    background: none;
+    border: none;
+    font-size: 2.2em;
+    color: var(--text-white);
+    cursor: pointer;
+    z-index: 200;
+  }
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    width: 100vw;
+    background: rgba(33, 37, 41, 0.97);
+    position: absolute;
+    top: 3.2em;
+    left: 0;
+    z-index: 150;
+    padding: 0;
+    margin: 0;
+  }
+  .navbar-links.active {
+    display: flex;
+    background-color: var(--shark-black);
+  }
+  .navbar-links li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #444;
+    margin: 0;
+  }
+  .nav-link-small {
+    padding: 1em 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navbar-small ul,
+  .navbar-links {
+    display: none;
+  }
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .toolset-figure {
+    max-width: 80%;
+  }
 }
