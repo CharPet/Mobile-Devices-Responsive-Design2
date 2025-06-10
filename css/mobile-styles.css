@@ -696,8 +696,8 @@ iframe {
 } */
 
 .contact-details {
-  font-size: 1.2rem;
-  font-size: clamp(1.2rem, 0.6rem + 1.25vw, 1.6rem);
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.6rem + 1.25vw, 1.6rem);
   font-family: "Vollkorn", sans-serif;
   display: flex;
   flex-direction: column;
@@ -969,5 +969,18 @@ textarea.invalid + .input-error-message {
 
   .toolset-figure {
     max-width: 80%;
+  }
+
+  .contact-details {
+    margin: 4em auto;
+    text-align: center;
+  }
+
+  form {
+    max-width: 90%;
+  }
+
+  #inspiration {
+    margin-top: 4em;
   }
 }

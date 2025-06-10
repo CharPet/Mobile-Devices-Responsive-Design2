@@ -254,3 +254,21 @@ if (textarea) {
     validateTextareaWords(this);
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggle = document.getElementById("js-navbar-toggle");
+  const navMenu = document.getElementById("js-menu");
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", function () {
+      navMenu.classList.toggle("active");
+    });
+    navToggle.addEventListener("keypress", function (e) {
+      if (e.key === "Enter" || e.key === " ")
+        navMenu.classList.toggle("active");
+    });
+    // Optional: close menu when a link is clicked
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => navMenu.classList.remove("active"));
+    });
+  }
+});
