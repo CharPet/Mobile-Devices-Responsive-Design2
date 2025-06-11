@@ -279,41 +279,41 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  let touchStartY = 0;
-  let touchEndY = 0;
+  // Touch handling for section navigation and content scrolling
   const sections = ["intro", "profile", "skillset", "projects", "contact"];
   let currentSectionIndex = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
 
-  document.addEventListener(
-    "touchstart",
-    function (e) {
-      touchStartY = e.touches[0].clientY;
-    },
-    false
-  );
+  // Add touch handlers to all .left sections
+  document.querySelectorAll(".left").forEach((leftSection) => {
+    leftSection.addEventListener("touchstart", handleLeftTouchStart, {
+      passive: true,
+    });
+    leftSection.addEventListener("touchend", handleLeftTouchEnd, {
+      passive: true,
+    });
+  });
 
-  document.addEventListener(
-    "touchmove",
-    function (e) {
-      e.preventDefault(); // Prevent default scrolling
-    },
-    { passive: false }
-  );
+  // Remove any existing overflow:hidden from .right sections
+  document.querySelectorAll(".right").forEach((rightSection) => {
+    rightSection.style.overflowY = "auto";
+    rightSection.style.webkitOverflowScrolling = "touch";
+  });
 
-  document.addEventListener(
-    "touchend",
-    function (e) {
-      touchEndY = e.changedTouches[0].clientY;
-      handleSwipe();
-    },
-    false
-  );
+  function handleLeftTouchStart(e) {
+    touchStartY = e.touches[0].clientY;
+  }
 
-  function handleSwipe() {
+  function handleLeftTouchEnd(e) {
+    touchEndY = e.changedTouches[0].clientY;
     const swipeDistance = touchStartY - touchEndY;
-    const minSwipeDistance = 50; // Minimum distance for a swipe
+    const minSwipeDistance = 50;
 
     if (Math.abs(swipeDistance) < minSwipeDistance) return;
+
+    // Prevent default only for .left section swipes
+    e.preventDefault();
 
     if (swipeDistance > 0) {
       // Swipe up - go to next section
