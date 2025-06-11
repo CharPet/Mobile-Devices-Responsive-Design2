@@ -20,7 +20,8 @@ html {
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-y: auto; /* Change from hidden to auto */
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
 }
 
 .hero {
@@ -946,6 +947,13 @@ textarea.invalid + .input-error-message {
 }
 
 @media (max-width: 600px) {
+  .profile,
+  .skillset,
+  .projects,
+  .contact {
+    touch-action: pan-y pinch-zoom; /* Allow vertical scrolling and pinch zoom */
+  }
+
   .navbar-toggle {
     display: block;
     position: fixed; /* Change to fixed */
@@ -987,8 +995,8 @@ textarea.invalid + .input-error-message {
     top: 3.5em;
     z-index: 201;
     opacity: 0;
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     transition: opacity 0.3s ease;
   }
   .navbar-logo img {
@@ -1075,6 +1083,11 @@ textarea.invalid + .input-error-message {
   .projects .right,
   .contact .right {
     border-top: 1px solid var(--shark-black);
+    width: 100%;
+    height: auto;
+    overflow-y: visible; /* Allow content to flow */
+    background: #f5f5f5;
+    padding: 1em;
   }
 
   #greetings {
