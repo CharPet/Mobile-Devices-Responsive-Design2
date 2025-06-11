@@ -242,10 +242,10 @@ h2 {
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.1);
-  padding: 1.5em 2em;
+  padding: 1.5em;
   margin: 3em auto 2em auto;
   max-width: 800px;
-  width: 90%;
+  width: 100%;
 }
 
 .navbar-small {
@@ -749,10 +749,10 @@ iframe {
   font-size: clamp(1.3rem, 0.6rem + 1.25vw, 1.8rem);
 }
 
-#form-presentation {
+/* #form-presentation {
   text-align: center;
   font-size: 1.6em;
-}
+} */
 
 #email-link {
   color: var(--shark-black);
@@ -780,7 +780,7 @@ iframe {
 #fieldset {
   margin: 0 auto;
   padding: 1em;
-  border: 2px solid rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--shark-black);
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -830,7 +830,7 @@ textarea {
   width: 100%;
   margin: 0.3em 0 0 0;
   padding: 0.5em 0.5em;
-  border: 2px groove var(--shark-black);
+  border: 2px groove rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   box-sizing: border-box;
 }
@@ -1135,12 +1135,21 @@ textarea.invalid + .input-error-message {
     font-size: 1.2rem;
   }
 
-  form {
+  #form {
     max-width: 90%;
   }
 
-  legend {
+  #fieldset {
+    border: 2px groove rgba(0, 0, 0, 0.3);
+  }
+
+  #legend {
     margin: 0 auto;
+  }
+
+  input,
+  textarea {
+    border: 2px groove rgba(0, 0, 0, 0.3);
   }
 
   #inspiration {
