@@ -1,7 +1,3 @@
-// app.listen(3000, "0.0.0.0", () => {
-//   console.log("Server running on all interfaces");
-// });
-
 const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
 const email = document.getElementById("email");
@@ -220,13 +216,6 @@ document.addEventListener("DOMContentLoaded", function () {
         invalidFields.push("comments (word count)");
       }
 
-      //   console.log(
-      //     "Form validation result:",
-      //     valid,
-      //     "Invalid fields:",
-      //     invalidFields
-      //   ); // Debug log
-
       if (!valid) {
         e.preventDefault();
         console.log("Form submission prevented due to validation errors");
@@ -258,17 +247,35 @@ if (textarea) {
 document.addEventListener("DOMContentLoaded", function () {
   const navToggle = document.getElementById("js-navbar-toggle");
   const navMenu = document.getElementById("js-menu");
-  if (navToggle && navMenu) {
-    navToggle.addEventListener("click", function () {
+  const myLogo = document.getElementById("myLogo");
+  if (navToggle && navMenu && myLogo) {
+    function toggleMenu() {
       navMenu.classList.toggle("active");
-    });
+      navToggle.classList.toggle("active");
+      myLogo.classList.toggle("active");
+    }
+    navToggle.addEventListener("click", toggleMenu);
     navToggle.addEventListener("keypress", function (e) {
-      if (e.key === "Enter" || e.key === " ")
-        navMenu.classList.toggle("active");
+      if (e.key === "Enter" || e.key === " ") toggleMenu();
     });
-    // Optional: close menu when a link is clicked
     navMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => navMenu.classList.remove("active"));
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        navToggle.classList.remove("active");
+        myLogo.classList.remove("active");
+      });
+    });
+    document.addEventListener("mousedown", function (e) {
+      if (
+        navMenu.classList.contains("active") &&
+        !navMenu.contains(e.target) &&
+        !navToggle.contains(e.target) &&
+        !myLogo.contains(e.target)
+      ) {
+        navMenu.classList.remove("active");
+        navToggle.classList.remove("active");
+        myLogo.classList.remove("active");
+      }
     });
   }
 });
