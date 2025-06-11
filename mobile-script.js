@@ -285,8 +285,41 @@ document.addEventListener("DOMContentLoaded", function () {
   let touchStartY = 0;
   let touchEndY = 0;
 
+  // Handle intro section separately
+  const introSection = document.getElementById("intro");
+  if (introSection) {
+    introSection.addEventListener(
+      "touchstart",
+      function (e) {
+        touchStartY = e.touches[0].clientY;
+      },
+      { passive: true }
+    );
+
+    introSection.addEventListener(
+      "touchend",
+      function (e) {
+        touchEndY = e.changedTouches[0].clientY;
+        const swipeDistance = touchStartY - touchEndY;
+        const minSwipeDistance = 50;
+
+        // Only allow downward navigation from intro
+        if (swipeDistance > minSwipeDistance) {
+          document
+            .getElementById("profile")
+            .scrollIntoView({ behavior: "smooth" });
+        }
+      },
+      { passive: true }
+    );
+  }
+
   // Add touch handlers to all .left sections
+  // Handle other .left sections
   document.querySelectorAll(".left").forEach((leftSection) => {
+    // Skip if this is part of the intro section
+    if (leftSection.closest("#intro")) return;
+
     leftSection.addEventListener("touchstart", handleLeftTouchStart, {
       passive: true,
     });

@@ -538,7 +538,7 @@ hr {
   padding: 2rem;
 
   background-color: var(--text-white);
-  border-left: 1px solid var(--shark-black);
+  /* border-left: 1px solid var(--shark-black); */
 }
 
 /* .skillset .right .text {
@@ -1001,8 +1001,9 @@ textarea.invalid + .input-error-message {
   .navbar-logo {
     display: none;
     position: fixed; /* Change to fixed */
-    left: 44.8vw;
-    top: 2.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1.5em;
     z-index: 201;
     opacity: 0;
     width: 48px;
@@ -1024,7 +1025,7 @@ textarea.invalid + .input-error-message {
 
   .navbar-toggle.active + .navbar-logo,
   .navbar-logo.active {
-    display: inline-block;
+    display: block;
     opacity: 1;
     pointer-events: auto;
   }
@@ -1086,16 +1087,15 @@ textarea.invalid + .input-error-message {
   .contact .left {
     max-height: 25%;
     border-bottom: 1px solid var(--shark-black);
-    border-radius: 0 0 24px 24px;
   }
 
   .profile .right,
   .skillset .right,
   .projects .right,
   .contact .right {
-    /* border-top: 1px solid var(--shark-black); */
-    /* border-radius: 16px 16px 0 0; */
+    border-top: 1px solid var(--shark-black);
     background-color: var(--text-white);
+    border-radius: 0 0 24px 24px;
   }
 
   #greetings {
