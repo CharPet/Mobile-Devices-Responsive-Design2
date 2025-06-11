@@ -418,6 +418,7 @@ h3 {
   word-break: break-word;
   box-sizing: border-box;
   margin: 2em auto;
+  hyphens: auto;
 }
 
 .text > span {
