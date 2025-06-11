@@ -278,4 +278,72 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  let touchStartY = 0;
+  let touchEndY = 0;
+  const sections = ["intro", "profile", "skillset", "projects", "contact"];
+  let currentSectionIndex = 0;
+
+  document.addEventListener(
+    "touchstart",
+    function (e) {
+      touchStartY = e.touches[0].clientY;
+    },
+    false
+  );
+
+  document.addEventListener(
+    "touchmove",
+    function (e) {
+      e.preventDefault(); // Prevent default scrolling
+    },
+    { passive: false }
+  );
+
+  document.addEventListener(
+    "touchend",
+    function (e) {
+      touchEndY = e.changedTouches[0].clientY;
+      handleSwipe();
+    },
+    false
+  );
+
+  function handleSwipe() {
+    const swipeDistance = touchStartY - touchEndY;
+    const minSwipeDistance = 50; // Minimum distance for a swipe
+
+    if (Math.abs(swipeDistance) < minSwipeDistance) return;
+
+    if (swipeDistance > 0) {
+      // Swipe up - go to next section
+      currentSectionIndex = Math.min(
+        currentSectionIndex + 1,
+        sections.length - 1
+      );
+    } else {
+      // Swipe down - go to previous section
+      currentSectionIndex = Math.max(currentSectionIndex - 1, 0);
+    }
+
+    // Smooth scroll to the section
+    document.getElementById(sections[currentSectionIndex]).scrollIntoView({
+      behavior: "smooth",
+    });
+  }
+
+  // Update current section index on regular scroll
+  document.addEventListener(
+    "scroll",
+    function () {
+      const scrollPosition = window.scrollY;
+      sections.forEach((section, index) => {
+        const element = document.getElementById(section);
+        if (element.offsetTop <= scrollPosition + window.innerHeight / 2) {
+          currentSectionIndex = index;
+        }
+      });
+    },
+    { passive: true }
+  );
 });

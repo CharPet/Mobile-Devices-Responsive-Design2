@@ -947,13 +947,13 @@ textarea.invalid + .input-error-message {
 
 @media (max-width: 600px) {
   .navbar-toggle {
-    display: block; /* Make sure it's always visible */
-    position: absolute;
+    display: block;
+    position: fixed; /* Change to fixed */
     right: 1em;
-    top: 0.8em;
-    background: none;
+    top: 1em;
+    padding: 0.5em;
     border: none;
-    font-size: 2.2em;
+    font-size: 1.8rem;
     cursor: pointer;
     z-index: 201;
     background: linear-gradient(
@@ -968,7 +968,7 @@ textarea.invalid + .input-error-message {
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    word-break: break-word;
+    transform: none; /* Prevent any transforms */
   }
 
   .navbar-toggle.active {
@@ -979,23 +979,30 @@ textarea.invalid + .input-error-message {
     background-clip: border-box;
     -webkit-background-clip: border-box;
     -webkit-text-fill-color: var(--text-white);
-    /* width: 100%;
-  height: 100%; */
   }
   .navbar-logo {
-    position: absolute;
-    left: 1em;
-    top: 0.8em; /* Align with menu icon */
-    z-index: 201;
     display: none;
+    position: fixed; /* Change to fixed */
+    left: 2.5em;
+    top: 3.5em;
+    z-index: 201;
     opacity: 0;
+    width: 48px;
+    height: 48px;
     transition: opacity 0.3s ease;
   }
-
-  .navbar-logo.active {
-    display: block;
-    opacity: 1;
+  .navbar-logo img {
+    width: 100%; /* Make image fill the container */
+    height: 100%;
+    object-fit: contain; /* Maintain aspect ratio */
+    vertical-align: middle;
   }
+  /* 
+  .navbar-logo.active {
+   display: flex;
+    align-items: center;
+    opacity: 1;
+  } */
 
   .navbar-toggle.active + .navbar-logo,
   .navbar-logo.active {
@@ -1013,7 +1020,7 @@ textarea.invalid + .input-error-message {
     top: 0; /* Start from the top */
     left: 0;
     z-index: 150;
-    padding-top: 4em; /* Add space for logo/menu */
+    padding-top: 4.5em; /* Add space for logo/menu */
     margin: 0;
   }
 
@@ -1037,12 +1044,6 @@ textarea.invalid + .input-error-message {
     border-bottom: 1px solid #444;
     margin: 0;
     padding: 1em 0;
-  }
-
-  .navbar-toggle.active,
-  .navbar-logo.active {
-    padding: 0.5em 1em;
-    background: rgba(33, 37, 41, 0.97);
   }
 
   .navbar-small ul,
