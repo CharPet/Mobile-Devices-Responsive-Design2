@@ -24,6 +24,28 @@ body::before {
   pointer-events: none;
 }
 
+.close-fullscreen {
+  position: fixed;
+  top: 1.2em;
+  right: 1.2em;
+  z-index: 2000;
+  background: rgba(255, 37, 41, 0.85);
+  color: var(--shark-black);
+  border: none;
+  border-radius: 50%;
+  width: 1.6em;
+  height: 1.6em;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.2);
+  transition: background 0.2s;
+}
+
+.close-fullscreen:hover {
+  background: #c23a3e;
+}
+
 .space {
   width: 100vw;
   height: 100vh;
@@ -457,4 +479,58 @@ body::before {
   height: 100vh;
   z-index: -1;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  body,
+  html {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: block; /* <-- Add this line to override flex */
+  }
+  .space {
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    transform: rotate(90deg);
+    position: fixed; /* Ensure it covers the viewport */
+    top: 0;
+    left: 0;
+  }
+
+  /* .space {
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+  
+     transform: rotate(90deg);
+  } */
+
+  body,
+  html {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  .planet {
+    transform: rotate(180deg);
+  }
+  /* .planet:hover {
+    transform: rotate(45deg) scale(1.5) !important;
+  } */
+
 }
